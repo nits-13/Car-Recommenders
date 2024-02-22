@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://wallpaperaccess.com/full/33115.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid #007BFF;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+            flex: 1; /* Take up available space in the flex container */
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left-column {
+            border-right: 1px solid #ccc;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        label {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 10px;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Car Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://wallpaperaccess.com/full/33115.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid #007BFF;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+            flex: 1; /* Take up available space in the flex container */
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left-column {
+            border-right: 1px solid #ccc;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        label {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 10px;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1>Car Recommendation System</h1>
+        <div class="columns">
+            <form method="POST" action="/input_rec">
+                <div class="left-column">
+                    <!-- Starting Price -->
+                    <div class="input-group">
+                        <label for="starting-price">Starting Price (Rs):</label>
+                        <select id="starting-price" name="starting-price">
+                            <option value="20000">₹16,00,000</option>
+                            <option value="30000">₹25,00,000</option>
+                            <option value="40000">₹33,00,000</option>
+                        </select>
+                        <p>Initial price of the car.</p>
+                    </div>
+                    <!-- Ending Price -->
+                    <div class="input-group">
+                        <label for="ending-price">Ending Price (Rs):</label>
+                        <select id="ending-price" name="ending-price">
+                            <option value="50000">₹41,00,000</option>
+                            <option value="60000">₹50,00,000</option>
+                            <option value="70000">₹58,00,000</option>
+                        </select>
+                        <p>Final price of the car.</p>
+                    </div>
+                    <!-- Body Type -->
+                    <div class="input-group">
+                        <label for="body-type">Body Type:</label>
+                        <select id="body-type" name="body-type">
+                            <option value="Sedan">Sedan</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="SUV">SUV</option>
+                        </select>
+                        <p>The style or model of the car's body.</p>
+                    </div>
+                    <!-- Seating Capacity -->
+                    <div class="input-group">
+                        <label for="seating-capacity">Seating Capacity:</label>
+                        <select id="seating-capacity" name="seating-capacity">
+                            <option value="2">2-seater</option>
+                            <option value="5">5-seater</option>
+                            <option value="7">7-seater</option>
+                        </select>
+                        <p>Maximum number of people the car can seat.</p>
+                    </div>
+                    <!-- Transmission Type -->
+                    <div class="input-group">
+                        <label for="transmission-type">Transmission Type:</label>
+                        <select id="transmission-type" name="transmission-type">
+                            <option value="Automatic">Automatic</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+                        <p>Type of transmission the car has.</p>
+                    </div>
+                    <!-- Reviews Count -->
+                    <div class="input-group">
+                        <label for="reviews-count">Reviews Count:</label>
+                        <select id="reviews-count" name="reviews-count">
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                        </select>
+                        <p>Number of reviews the car has received.</p>
+                    </div>
+                    <!-- Rating -->
+                    <div class="input-group">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" name="rating">
+                            <option value="4.0">4.0</option>
+                            <option value="4.5">4.5</option>
+                            <option value="5.0">5.0</option>
+                        </select>
+                        <p>Average user rating of the car.</p>
+                    </div>
+                    <!-- Fuel Type -->
+                    <div class="input-group">
+                        <label for="fuel-type">Fuel Type:</label>
+                        <select id="fuel-type" name="fuel-type">
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Electric">Electric</option>
+                            <option value="CNG">CNG</option>
+                        </select>
+                        <p>Type of fuel the car uses.</p>
+                    </div>
+                    <!-- Engine Displacement -->
+                    <div class="input-group">
+                        <label for="engine-displacement">Engine Displacement (cc):</label>
+                        <select id="engine-displacement" name="engine-displacement">
+                            <option value="1000">1000 cc</option>
+                            <option value="1500">1500 cc</option>
+                            <option value="2000">2000 cc</option>
+                        </select>
+                        <p>The total volume of all cylinders in the engine.</p>
+                    </div>
+                    <!-- Number of Cylinders -->
+                    <div class="input-group">
+                        <label for="number-of-cylinders">Number of Cylinders:</label>
+                        <select id="number-of-cylinders" name="number-of-cylinders">
+                            <option value="4">4 cylinders</option>
+                            <option value="6">6 cylinders</option>
+                            <option value="8">8 cylinders</option>
+                        </select>
+                        <p>Total number of cylinders in the engine.</p>
+                    </div>
+                    <!-- Fuel Tank Capacity -->
+                    <div class="input-group">
+                        <label for="fuel-tank-capacity">Fuel Tank Capacity (liters):</label>
+                        <select id="fuel-tank-capacity" name="fuel-tank-capacity">
+                            <option value="50">50 liters</option>
+                            <option value="70">70 liters</option>
+                            <option value="100">100 liters</option>
+                        </select>
+                        <p>Maximum amount of fuel the fuel tank can hold.</p>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <!-- Max Torque (Nm) -->
+                    <div class="input-group">
+                        <label for="max-torque-nm">Max Torque (Nm):</label>
+                        <select id="max-torque-nm" name="max-torque-nm">
+                            <option value="200">200 Nm</option>
+                            <option value="250">250 Nm</option>
+                            <option value="300">300 Nm</option>
+                        </select>
+                        <p>Maximum torque produced by the engine.</p>
+                    </div>
+                    <!-- Max Torque RPM -->
+                    <div class="input-group">
+                        <label for="max-torque-rpm">Max Torque RPM:</label>
+                        <select id="max-torque-rpm" name="max-torque-rpm">
+                            <option value="3000">3000 RPM</option>
+                            <option value="4000">4000 RPM</option>
+                            <option value="5000">5000 RPM</option>
+                        </select>
+                        <p>Engine speed at which maximum torque is produced.</p>
+                    </div>
+                    <!-- Max Power (BHP) -->
+                    <div class="input-group">
+                        <label for="max-power-bhp">Max Power (BHP):</label>
+                        <select id="max-power-bhp" name="max-power-bhp">
+                            <option value="100">100 BHP</option>
+                            <option value="150">150 BHP</option>
+                            <option value="200">200 BHP</option>
+                        </select>
+                        <p>Maximum power produced by the engine.</p>
+                    </div>
+                    <!-- Max Power RPM -->
+                    <div class="input-group">
+                        <label for="max-power-rpm">Max Power RPM:</label>
+                        <select id="max-power-rpm" name="max-power-rpm">
+                            <option value="4000">4000 RPM</option>
+                            <option value="5000">5000 RPM</option>
+                            <option value="6000">6000 RPM</option>
+                        </select>
+                        <p>Engine speed at which maximum power is produced.</p>
+                    </div>
+                <div class="input-group">
+                    <!-- Button to Submit Form -->
+                    <button type="submit">Get Recommendations</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

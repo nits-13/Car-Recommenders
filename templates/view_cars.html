@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Car Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://wallpaperaccess.com/full/33115.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            max-width: 1000px;
+            width: 90%;
+            border: 2px solid #007BFF;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .car-details {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .car-details strong:first-child {
+            font-size: 1.5em; /* Larger font size for car name */
+            margin-bottom: 10px; /* Additional margin for separation */
+        }
+
+        .car-details strong {
+            font-size: 1.2em; /* Font size for other features */
+        }
+
+        .car-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto; /* Center the image within the container */
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Recommended Car Details</h1>
+    </div>
+    {% if rec %}
+        {% for car in rec %}
+            <div class="container">
+                <div class="car-details">
+                    <strong>Algo: {{ car[0] }}</strong><br>
+                    <strong>Car: {{ car[1] }}</strong><br>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recommendations available.</p>
+    {% endif %}
+</body>
+</html>

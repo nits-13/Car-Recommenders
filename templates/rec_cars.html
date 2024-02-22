@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Recommendation System</title>
+    <style>
+        /* Your existing CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Car Recommendation System</h1>
+        <div class="columns">
+            <!-- Your existing form here -->
+        </div>
+        <div class="input-group">
+            <button type="button" onclick="getRecommendation()">Get Recommendation</button>
+        </div>
+        <div id="recommendation" class="container" style="display: none;">
+            <h2>Recommended Car:</h2>
+            <div id="car-details"></div>
+        </div>
+
+        <script>
+            function getRecommendation() {
+                // Fetch selected values from the form
+                var brand = document.getElementById("brand").value;
+                var fuelType = document.getElementById("fuel-type").value;
+                var engineDisplacement = document.getElementById("engine-displacement").value;
+                var seatingCapacity = document.getElementById("seating-capacity").value;
+                var transmissionType = document.getElementById("transmission-type").value;
+                var fuelTankCapacity = document.getElementById("fuel-tank-capacity").value;
+                var startingPrice = document.getElementById("starting-price").value;
+                var endingPrice = document.getElementById("ending-price").value;
+                var maxTorque = document.getElementById("max-torque").value;
+                var bodyType = document.getElementById("body-type").value;
+                var numberOfCylinders = document.getElementById("number-of-cylinders").value;
+                var rating = document.getElementById("rating").value;
+
+                // Perform logic to recommend a car based on the selected values
+                // You can customize this part based on your requirements
+                var recommendedCar = {
+                    car_name: "Example Car",
+                    reviews_count: 100,
+                    fuel_type: fuelType,
+                    engine_displacement: engineDisplacement,
+                    no_cylinder: numberOfCylinders,
+                    seating_capacity: seatingCapacity,
+                    transmission_type: transmissionType,
+                    fuel_tank_capacity: fuelTankCapacity,
+                    body_type: bodyType,
+                    rating: rating,
+                    starting_price: startingPrice,
+                    ending_price: endingPrice,
+                    max_torque_nm: maxTorque,
+                    max_torque_rpm: "5000", // Replace with actual value
+                    max_power_bhp: "200", // Replace with actual value
+                    max_power_rpm: "6000" // Replace with actual value
+                };
+
+                // Display the recommendation
+                displayRecommendation(recommendedCar);
+            }
+
+            function displayRecommendation(car) {
+                var recommendationDiv = document.getElementById("recommendation");
+                var carDetailsDiv = document.getElementById("car-details");
+
+                // Create HTML content for recommended car details
+                var carDetailsHTML = "<p><strong>Car Name:</strong> " + car.car_name + "</p>" +
+                                     "<p><strong>Reviews Count:</strong> " + car.reviews_count + "</p>" +
+                                     "<p><strong>Fuel Type:</strong> " + car.fuel_type + "</p>" +
+                                     "<p><strong>Engine Displacement:</strong> " + car.engine_displacement + "</p>" +
+                                     "<p><strong>Number of Cylinders:</strong> " + car.no_cylinder + "</p>" +
+                                     "<p><strong>Seating Capacity:</strong> " + car.seating_capacity + "</p>" +
+                                     "<p><strong>Transmission Type:</strong> " + car.transmission_type + "</p>" +
+                                     "<p><strong>Fuel Tank Capacity:</strong> " + car.fuel_tank_capacity + "</p>" +
+                                     "<p><strong>Body Type:</strong> " + car.body_type + "</p>" +
+                                     "<p><strong>Rating:</strong> " + car.rating + "</p>" +
+                                     "<p><strong>Starting Price:</strong> $" + car.starting_price + "</p>" +
+                                     "<p><strong>Ending Price:</strong> $" + car.ending_price + "</p>" +
+                                     "<p><strong>Max Torque:</strong> " + car.max_torque_nm + " at " + car.max_torque_rpm + " RPM</p>" +
+                                     "<p><strong>Max Power:</strong> " + car.max_power_bhp + " BHP at " + car.max_power_rpm + " RPM</p>";
+
+                // Set the HTML content and display the recommendation
+                carDetailsDiv.innerHTML = carDetailsHTML;
+                recommendationDiv.style.display = "block";
+            }
+        </script>
+    </div>
+</body>
+</html>

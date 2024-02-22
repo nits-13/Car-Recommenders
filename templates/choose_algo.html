@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Recommendation System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://wallpaperaccess.com/full/33115.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            overflow-y: auto; /* Add scrollbar */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .top-partition {
+            text-align: center;
+            background: transparent;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .bottom-partition {
+            display: flex;
+            flex: 1;
+        }
+
+        .left-half, .right-half {
+            flex: 1;
+        }
+
+        .left-half {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly; /* Spacing out vertically */
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            height: 100%; /* Occupy full height */
+        }
+
+        .algorithm-box {
+            background: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for transparency */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 80%; /* Adjusted width for better appearance */
+        }
+
+        .algorithm-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000; /* Improved contrast */
+        }
+
+        .algorithm-button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .right-half {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slider-container {
+            width: 80%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #heuristicButton {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-partition">
+        <h1>Choose Algorithm</h1>
+    </div>
+    <div class="bottom-partition">
+        <div class="left-half">
+            <div class="algorithm-box">
+                <div class="algorithm-heading">Constraint Satisfaction Problem (CSP)</div>
+                <button class="algorithm-button" id="cspButton">Select CSP</button>
+            </div>
+            <div class="algorithm-box">
+                <div class="algorithm-heading">Naive Bayes Algorithm</div>
+                <button class="algorithm-button" id="naiveBayesButton">Select Naive Bayes</button>
+            </div>
+            <div class="algorithm-box">
+                <div class="algorithm-heading">First Order Logic</div>
+                <button class="algorithm-button" id="folButton">Select First Order Logic</button>
+            </div>
+        </div>
+        <div class="right-half">
+            <div class="slider-container">
+                <h2>Specify Weightage for Features</h2>
+
+                <label for="carNameSlider">Car Name</label>
+                <input type="range" id="carNameSlider" min="1" max="10" step="1" value="5">
+
+                <label for="reviewsCountSlider">Reviews Count</label>
+                <input type="range" id="reviewsCountSlider" min="1" max="10" step="1" value="5">
+
+                <label for="fuelTypeSlider">Fuel Type</label>
+                <input type="range" id="fuelTypeSlider" min="1" max="10" step="1" value="5">
+
+                <label for="engineDisplacementSlider">Engine Displacement</label>
+                <input type="range" id="engineDisplacementSlider" min="1" max="10" step="1" value="5">
+
+                <label for="noCylinderSlider">Number of Cylinders</label>
+                <input type="range" id="noCylinderSlider" min="1" max="10" step="1" value="5">
+
+                <label for="seatingCapacitySlider">Seating Capacity</label>
+                <input type="range" id="seatingCapacitySlider" min="1" max="10" step="1" value="5">
+
+                <label for="transmissionTypeSlider">Transmission Type</label>
+                <input type="range" id="transmissionTypeSlider" min="1" max="10" step="1" value="5">
+
+                <label for="fuelTankCapacitySlider">Fuel Tank Capacity</label>
+                <input type="range" id="fuelTankCapacitySlider" min="1" max="10" step="1" value="5">
+
+                <label for="bodyTypeSlider">Body Type</label>
+                <input type="range" id="bodyTypeSlider" min="1" max="10" step="1" value="5">
+
+                <label for="ratingSlider">Rating</label>
+                <input type="range" id="ratingSlider" min="1" max="10" step="1" value="5">
+
+                <label for="startingPriceSlider">Starting Price</label>
+                <input type="range" id="startingPriceSlider" min="1" max="10" step="1" value="5">
+
+                <label for="endingPriceSlider">Ending Price</label>
+                <input type="range" id="endingPriceSlider" min="1" max="10" step="1" value="5">
+
+                <label for="maxTorqueNmSlider">Max Torque (Nm)</label>
+                <input type="range" id="maxTorqueNmSlider" min="1" max="10" step="1" value="5">
+
+                <label for="maxTorqueRpmSlider">Max Torque (RPM)</label>
+                <input type="range" id="maxTorqueRpmSlider" min="1" max="10" step="1" value="5">
+
+                <label for="maxPowerBhpSlider">Max Power (BHP)</label>
+                <input type="range" id="maxPowerBhpSlider" min="1" max="10" step="1" value="5">
+
+                <label for="maxPowerRpmSlider">Max Power (RPM)</label>
+                <input type="range" id="maxPowerRpmSlider" min="1" max="10" step="1" value="5">
+
+                <button id="heuristicButton">Choose Heuristic Algorithm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
